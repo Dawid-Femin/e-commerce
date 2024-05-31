@@ -1,7 +1,12 @@
 export const Navigation = () => {
-    return (
-        <nav>
-            Tu bedzie nawigacja
-        </nav>
-    )
-}
+  return (
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  );
+};
