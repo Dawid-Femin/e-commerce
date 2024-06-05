@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+
+  @media (max-width: $lg) {
+    flex-direction: column;
+  }
+}
+
+.aside {
+  width: 45%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+
+  @media (max-width: $lg) {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.main {
+  width: 55%;
+
+  @media (max-width: $lg) {
+    width: 100%;
+  }
+}
