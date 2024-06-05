@@ -5,8 +5,7 @@
 
   input {
     border-radius: 20px 0 0 20px;
-    border: 1px solid #777;
-    box-shadow: $box-shadow;
+    border: 2px solid $black;
     min-height: 30px;
     min-width: 300px;
     padding-left: 20px;
@@ -14,12 +13,12 @@
   }
 
   svg {
-    background-color: #777;
+    background-color: $black;
     min-height: 30px;
     min-width: 30px;
-    padding: 6px;
+    padding: 3px;
     border-radius: 0 20px 20px 0;
-    border: 1px solid #777;
+    border: 2px solid $black;
     color: $white;
     cursor: pointer;
   }

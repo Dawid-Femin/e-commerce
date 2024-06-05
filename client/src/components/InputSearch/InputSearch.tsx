@@ -1,5 +1,7 @@
 import classes from "./inputSearch.module.scss";
-import { IoIosSearch } from "react-icons/io";
+import { IoSearch } from "react-icons/io5";
+
+
 import { FC } from "react";
 
 interface InputSearchProps {
@@ -14,7 +16,7 @@ export const InputSearch: FC<InputSearchProps> = ({
   return (
     <div className={classes.input}>
       <input type="text" placeholder={placeholder} />
-      <IoIosSearch onClick={onIconClick} />
+      <IoSearch onClick={onIconClick} />
     </div>
   );
 };
