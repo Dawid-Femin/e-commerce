@@ -1,11 +1,22 @@
 import classes from "./inputSearch.module.scss";
-import { IoIosSearch } from "react-icons/io";
+import { IoSearch } from "react-icons/io5";
 
-export const InputSearch = () => {
+
+import { FC } from "react";
+
+interface InputSearchProps {
+  placeholder?: string;
+  onIconClick?: () => void;
+}
+
+export const InputSearch: FC<InputSearchProps> = ({
+  placeholder = "",
+  onIconClick,
+}) => {
   return (
     <div className={classes.input}>
-      <input type="text" />
-      <IoIosSearch />
+      <input type="text" placeholder={placeholder} />
+      <IoSearch onClick={onIconClick} />
     </div>
   );
 };

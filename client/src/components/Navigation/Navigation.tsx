@@ -1,23 +1,33 @@
-import classes from "./navigation.module.scss";
 import useMobile from "../../hooks/useMobile.tsx";
-import { MdMenu } from "react-icons/md";
 import { InputSearch } from "../InputSearch/InputSearch.tsx";
+import { Box } from "@mui/material";
+import { MdMenu } from "react-icons/md";
+import { LiaCartPlusSolid } from "react-icons/lia";
+import { LiaFacebookMessenger } from "react-icons/lia";
+import { LiaUser } from "react-icons/lia";
+import classes from "./navigation.module.scss";
 
 export const Navigation = () => {
   const isMobile = useMobile();
   return (
-    <div className={classes.root}>
-      <div className={classes.continer}>
-        <div className={classes.logo}>Personal shop</div>
+    <Box component="div" className={classes.root}>
+      <Box component="div" className={classes.continer}>
+        <Box component="div" className={classes.logo}>
+          Personal shop
+        </Box>
         <InputSearch />
         {isMobile ? (
-          <div className={classes.hamburger}>
+          <Box component="div" className={classes.hamburger}>
             <MdMenu />
-          </div>
+          </Box>
         ) : (
-          <div className={classes.user}>User</div>
+          <Box component="div" className={classes.user}>
+            <LiaCartPlusSolid />
+            <LiaFacebookMessenger />
+            <LiaUser />
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
