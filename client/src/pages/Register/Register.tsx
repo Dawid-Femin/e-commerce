@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
-import classes from "../Login/login.module.scss";
 import { ImageFull } from "../../components/ImageFull/ImageFull.tsx";
+import { RegisterForm } from "../../components/FormikForms/RegisterForm/RegisterForm.tsx";
 import registerImage from "../../assets/loginImage.webp";
+import classes from "../Login/login.module.scss";
 
 export const Register = () => {
   return (
@@ -11,7 +12,7 @@ export const Register = () => {
           <ImageFull image={registerImage} alt={"Login image"} />
         </Box>
         <Box component="div" className={`container ${classes.main}`}>
-          FORM
+          <RegisterForm />
         </Box>
       </Box>
     </>
