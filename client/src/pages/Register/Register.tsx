@@ -11,7 +11,7 @@ export const Register = () => {
         <Box component="div" className={classes.aside}>
           <ImageFull image={registerImage} alt={"Login image"} />
         </Box>
-        <Box component="div" className={`container ${classes.main}`}>
+        <Box component="div" className={classes.main}>
           <RegisterForm />
         </Box>
       </Box>
