@@ -1,5 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
-import { Field, Form, Formik, FormikProps } from "formik";
+import { Field, Form, Formik } from "formik";
 import { RegisterFormValidation } from "./RegisterFormValidation";
 import classes from "../forms.module.scss";
 
@@ -21,31 +20,13 @@ const onSubmit = (values: FormValues) => {
   console.log("Form data:", values);
 };
 
-interface RegisterFormProps {
-  formRef: React.RefObject<{ submitForm: () => void } | null>;
-}
-
-export const RegisterForm = forwardRef<
-  { submitForm: () => void },
-  RegisterFormProps
->(({ formRef }) => {
-  const formikRef = useRef<FormikProps<FormValues>>(null);
-
-  useImperativeHandle(formRef, () => ({
-    submitForm: () => {
-      if (formikRef.current) {
-        formikRef.current.submitForm();
-      }
-    },
-  }));
-
+export const RegisterForm = () => {
   return (
     <div className={classes.root}>
       <Formik
         initialValues={initialValues}
         validationSchema={RegisterFormValidation}
         onSubmit={onSubmit}
-        innerRef={formikRef}
       >
         {({ errors, touched }) => (
           <Form className={classes.form}>
@@ -104,4 +85,4 @@ export const RegisterForm = forwardRef<
       </Formik>
     </div>
   );
-});
+};
