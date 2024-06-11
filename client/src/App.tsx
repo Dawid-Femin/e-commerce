@@ -6,12 +6,12 @@ import {
   RouterProvider,
   useLocation,
 } from "react-router-dom";
-import Home from "./pages/Home/Home.tsx";
 import Contact from "./pages/Contact/Contact.tsx";
 import { Navigation } from "./components/Navigation/Navigation.tsx";
 import { Login } from "./pages/Login/Login.tsx";
 import { Register } from "./pages/Register/Register.tsx";
 import classes from "./app.module.scss";
+import Home from "./pages/Home/Home.tsx";
 
 function App() {
   const router = createBrowserRouter(

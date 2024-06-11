@@ -1,20 +1,26 @@
 import { Field, Form, Formik } from "formik";
-import { FC } from "react";
-import { RegisterFormValidation } from "./RegisterFormValidation.tsx";
+import { RegisterFormValidation } from "./RegisterFormValidation";
 import classes from "../forms.module.scss";
 
-const initialValues = {
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const initialValues: FormValues = {
   name: "",
   email: "",
   password: "",
   confirmPassword: "",
 };
 
-const onSubmit = (values: any) => {
+const onSubmit = (values: FormValues) => {
   console.log("Form data:", values);
 };
 
-export const RegisterForm: FC = () => {
+export const RegisterForm = () => {
   return (
     <div className={classes.root}>
       <Formik
@@ -22,33 +28,58 @@ export const RegisterForm: FC = () => {
         validationSchema={RegisterFormValidation}
         onSubmit={onSubmit}
       >
-        {({ errors }) => (
-          <Form>
-            <label htmlFor={"name"}>Name</label>
-            <Field type={"text"} name={"name"} placeholder={"Enter name"} />
-            <br />
-            {errors.name && <small>{errors.name}</small>}
-            <br />
+        {({ errors, touched }) => (
+          <Form className={classes.form}>
+            <div className={classes.formGroup}>
+              <label htmlFor="name">Name</label>
+              <Field
+                type="text"
+                name="name"
+                placeholder="Enter name"
+                className={classes.input}
+              />
+              {errors.name && touched.name && (
+                <small className={classes.error}>{errors.name}</small>
+              )}
+            </div>
 
-            <label htmlFor={"email"}>Email</label>
-            <Field type={"email"} name={"email"} />
-            <br />
-            {errors.email && <small>{errors.email}</small>}
-            <br />
+            <div className={classes.formGroup}>
+              <label htmlFor="email">Email</label>
+              <Field type="email" name="email" className={classes.input} />
+              {errors.email && touched.email && (
+                <small className={classes.error}>{errors.email}</small>
+              )}
+            </div>
 
-            <label htmlFor={"password"}>Password</label>
-            <Field type={"text"} name={"password"} />
-            <br />
-            {errors.password && <small>{errors.password}</small>}
-            <br />
+            <div className={classes.formGroup}>
+              <label htmlFor="password">Password</label>
+              <Field
+                type="password"
+                name="password"
+                className={classes.input}
+              />
+              {errors.password && touched.password && (
+                <small className={classes.error}>{errors.password}</small>
+              )}
+            </div>
 
-            <label htmlFor={"confirmPassword"}>Confirm Password</label>
-            <Field type={"text"} name={"confirmPassword"} />
-            <br />
-            {errors.confirmPassword && <small>{errors.confirmPassword}</small>}
-            <br />
+            <div className={classes.formGroup}>
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <Field
+                type="password"
+                name="confirmPassword"
+                className={classes.input}
+              />
+              {errors.confirmPassword && touched.confirmPassword && (
+                <small className={classes.error}>
+                  {errors.confirmPassword}
+                </small>
+              )}
+            </div>
 
-            <button type={"submit"}>Submit</button>
+            <button type="submit" className={classes.submitButton}>
+              Submit
+            </button>
           </Form>
         )}
       </Formik>
